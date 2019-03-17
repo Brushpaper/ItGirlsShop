@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#1111"
+>
+
+    <LinearLayout
+            android:id="@+id/MainAct_TopText"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:layout_marginHorizontal="50dp"
+    >
+        <ImageView
+                android:layout_gravity="center_horizontal"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:background="#155788"
+        >
+
+        </ImageView>
+        <TextView
+                android:layout_marginTop="60dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="27sp"
+                android:textColor="#000"
+                android:text="Dragons and Books"
+        />
+        <TextView
+                android:layout_marginTop="25dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:text="Маргарита Резаева"
+        />
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="17sp"
+                android:autoLink="email"
+                android:text="bride.in.space@gmail.com"
+        />
+    </LinearLayout>
+
+    <LinearLayout
+            android:id="@+id/MainAct_BottomText"
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right"
+            android:layout_marginRight="25dp"
+            android:layout_marginBottom="25dp"
+    >
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:text="It School 2019"
+        />
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="17sp"
+                android:textColor="#D500F9"
+                android:text="#хочувайти"
+        />
+    </LinearLayout>
+
+</FrameLayout>
