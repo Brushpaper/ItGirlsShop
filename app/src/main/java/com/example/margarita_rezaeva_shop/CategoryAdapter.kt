@@ -14,7 +14,7 @@ import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.wrapContent
 
-data class CategoryAdapter (
+class CategoryAdapter (
 
     val categories: List<Category>,
     val context: Context
@@ -40,7 +40,11 @@ data class CategoryAdapter (
             .into(holder.itemView.pictureView)
 
         holder.itemView.onClick {
-            context.startActivity<UnderCategoryActivity> ("underCategoriesUrl" to category.underCategoriesUrl)
+            if (category.haveSubCategories) {
+                context.startActivity<CategoryActivity>("categoriesUrl" to category.url)
+            } else {
+                context.startActivity<ProductActivity>("productsUrl" to category.url)
+            }
         }
     }
 

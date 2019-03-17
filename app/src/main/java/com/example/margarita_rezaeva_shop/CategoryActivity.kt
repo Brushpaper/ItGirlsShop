@@ -25,14 +25,16 @@ import kotlinx.serialization.parse
 
 class CategoryActivity : AppCompatActivity() {
 
-    val categoriesUrl =
-        "https://gist.githubusercontent.com/Brushpaper/d02ded2ce3dba9ffdd6b69bd9fb55fe7/raw/ba07fba54cafa046e3e613f3c5fef437344bd138/Categories.json"
+    val rootCategoriesUrl =
+        "https://raw.githubusercontent.com/Brushpaper/ShopMargaret/master/categories.json"
 
-    val presenter = CategoriesPresenter(categoriesUrl, this)
+    lateinit var presenter: CategoriesPresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_category)
+        val categoriesUrl = intent.getStringExtra("categoriesUrl") ?: rootCategoriesUrl
+        presenter = CategoriesPresenter(categoriesUrl, this)
     }
 
     override fun onResume() {
