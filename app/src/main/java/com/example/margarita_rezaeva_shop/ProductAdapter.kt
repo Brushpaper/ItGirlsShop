@@ -30,10 +30,9 @@ class ProductAdapter (
            override fun onBindViewHolder(holder: ViewHolder, position: Int) {
            val product = products.get(position)
            holder.itemView.nameView.text = product.name
-           /*holder.itemView.authorView.text = product.author
-            **holder.itemView.specialView.text = product.special
-            **holder.itemView.priceView.text = "${product.price}"
-           */
+           holder.itemView.authorView.text = product.author
+            //holder.itemView.specialView.text = product.special
+          //  holder.itemView.priceView.text = "${product.price}"
 
            Picasso.get()
            .load(product.imageURL)

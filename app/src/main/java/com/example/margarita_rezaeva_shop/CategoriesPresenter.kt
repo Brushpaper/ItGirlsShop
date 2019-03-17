@@ -1,6 +1,7 @@
 package com.example.margarita_rezaeva_shop
 
 import kotlinx.serialization.json.Json
+import kotlinx.serialization.list
 
 
 class CategoriesPresenter(
