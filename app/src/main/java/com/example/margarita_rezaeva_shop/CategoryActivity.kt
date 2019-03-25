@@ -22,6 +22,7 @@ import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.list
 import kotlinx.serialization.parse
+import org.jetbrains.anko.longToast
 
 class CategoryActivity : AppCompatActivity() {
 
@@ -34,12 +35,21 @@ class CategoryActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_category)
         val categoriesUrl = intent.getStringExtra("categoriesUrl") ?: rootCategoriesUrl
-        presenter = CategoriesPresenter(categoriesUrl, this)
+        presenter = CategoriesPresenter(categoriesUrl, view = this)
     }
 
     override fun onResume() {
         super.onResume()
         presenter.onAppear()
+    }
+
+    fun displayError() {
+        longToast("Произошла ошибка!")
+        RefreshButtonC.visibility = View.VISIBLE
+        RefreshButtonC.onClick {
+            presenter.onRefresh()
+            RefreshButtonC.visibility = View.INVISIBLE
+        }
     }
 
     fun displayCategories(categories: List<Category>) {

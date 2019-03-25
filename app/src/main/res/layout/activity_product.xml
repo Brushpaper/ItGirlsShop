@@ -14,5 +14,11 @@
 
     </android.support.v7.widget.RecyclerView>
 
+    <Button android:id="@+id/RefreshButtonP"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="invisible"
+            android:text="Обновить"/>
 
 </FrameLayout>

@@ -21,6 +21,7 @@ import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.list
 import kotlinx.serialization.parse
+import org.jetbrains.anko.longToast
 
 class ProductActivity : AppCompatActivity() {
 
@@ -31,12 +32,21 @@ class ProductActivity : AppCompatActivity() {
         setContentView(R.layout.activity_product)
 
         val productsUrl = intent.getStringExtra("productsUrl")
-        presenter = ProductsPresenter(productsUrl, this)
+        presenter = ProductsPresenter(productsUrl, view = this)
     }
 
     override fun onResume() {
         super.onResume()
         presenter.onAppear()
+    }
+
+    fun displayError() {
+        longToast("Произошла ошибка!")
+        RefreshButtonP.visibility = View.VISIBLE
+        RefreshButtonP.onClick {
+            presenter.onRefresh()
+            RefreshButtonP.visibility = View.INVISIBLE
+        }
     }
 
     fun displayProducts(products: List<Product>){
